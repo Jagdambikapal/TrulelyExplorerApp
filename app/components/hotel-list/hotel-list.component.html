@@ -1,0 +1,10 @@
+<div *ngFor="let hotel of hotels">
+    <h3>{{ hotel.name }}</h3>
+    <p>{{ hotel.description }}</p>
+    <img [src]="hotel.image" alt="{{ hotel.name }}" />
+
+    <button (click)="deleteHotel(hotel.id)">Delete</button>
+    <a [routerLink]="['/hotel', hotel.id]">Edit</a>
+  </div>
+  <a [routerLink]="['/add-hotel']">Add Hotel</a>
+  
