@@ -1,10 +1,25 @@
-<div *ngFor="let hotel of hotels">
-    <h3>{{ hotel.name }}</h3>
-    <p>{{ hotel.description }}</p>
-    <img [src]="hotel.image" alt="{{ hotel.name }}" />
 
-    <button (click)="deleteHotel(hotel.id)">Delete</button>
-    <a [routerLink]="['/hotel', hotel.id]">Edit</a>
+  <div class="container">
+    <h2>Striped Rows</h2>
+    <p>Hotel Details</p>            
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>s.no</th>
+          <th>Hotel Name</th>
+          <th>Desciption</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hotel of hotels; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ hotel.name }}</td>
+          <td>{{ hotel.description }}</td>
+          <td><img [src]="hotel.image" alt="{{ hotel.name }}" /></td>
+          <td><button class="btn btn-success">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <a [routerLink]="['/add-hotel']">Add Hotel</a>
-  
